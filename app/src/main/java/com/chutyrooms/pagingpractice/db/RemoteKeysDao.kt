@@ -2,12 +2,14 @@ package com.chutyrooms.pagingpractice.db
 
 import androidx.lifecycle.LiveData
 import androidx.paging.PagingSource
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.chutyrooms.pagingpractice.model.CharacterRemoteKeys
 import com.example.rickandmorty.data.entities.Character
 
+@Dao
 interface RemoteKeysDao {
     @Query("SELECT * FROM CharacterRemoteKeys WHERE id=:id")
     suspend fun getRemoteKeys(id: Int) : CharacterRemoteKeys
@@ -17,6 +19,10 @@ interface RemoteKeysDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllRemoteKeys(characters: List<CharacterRemoteKeys>)
+
+
+    @Query("DELETE FROM CharacterRemoteKeys")
+    suspend fun deleteAllCharacterKeys()
 
     /*@Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(character: Character)*/

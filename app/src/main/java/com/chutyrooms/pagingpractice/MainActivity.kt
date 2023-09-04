@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
+import androidx.paging.ExperimentalPagingApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chutyrooms.pagingpractice.databinding.ActivityMainBinding
 import com.chutyrooms.pagingpractice.paging.CharacterAdapter
@@ -12,7 +13,7 @@ import com.chutyrooms.pagingpractice.paging.LoaderAdapter
 import com.chutyrooms.pagingpractice.viewmodel.CharacterViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-
+@ExperimentalPagingApi
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
